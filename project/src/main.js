@@ -1,39 +1,31 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import axios from 'axios'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import axios from "axios";
 
-import Vant from 'vant';
+import Vant from "vant";
 
-import Vuex from 'vuex'
+import Vuex from "vuex";
 
+import productList from "./utils/productList";
 
-import productList from './utils/productList'
-
-
-
-
-
-
-
-import 'vant/lib/index.css';
-import '../public/css/common.css'
+import "vant/lib/index.css";
+import "../public/css/common.css";
 
 // import {getToken} from './utils/auth'
 
 Vue.use(Vant);
-Vue.use(Vuex)
-Vue.prototype.$http = axios//吧axios挂载到原型上面
+Vue.use(Vuex);
+Vue.prototype.$http = axios; //把axios挂载到原型上面
 
-Vue.prototype_url = productList //把url挂载到原型上面
-Vue.config.productionTip = false
+Vue.prototype_url = productList; //把url挂载到原型上面
+Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
+  render: (h) => h(App),
   router,
   Vuex,
-}).$mount('#app');
-
+}).$mount("#app");
 
 // 路由全局守卫
 

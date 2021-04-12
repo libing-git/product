@@ -2,8 +2,8 @@
   <div class="footer">
     <div class="footerNav">
       <ul>
-        <router-link to="/message" tag="li">信息</router-link>
-        <router-link to="/tong" tag="li">通讯录</router-link>
+        <router-link to="/tong" tag="li">首页</router-link>
+        <router-link to="/message" tag="li">列表</router-link>
         <router-link to="/cart" tag="li">购物车</router-link>
         <router-link to="/mine" tag="li">我的</router-link>
       </ul>
