@@ -3,16 +3,16 @@
     <div class="footerNav">
       <ul>
         <van-tabbar v-model="active">
-          <van-tabbar-item icon="home-o" to="/shouye" tag="li"
+          <van-tabbar-item icon="wap-home" to="/shouye" tag="li"
             >首页</van-tabbar-item
           >
-          <van-tabbar-item icon="search" to="/message" tag="li"
+          <van-tabbar-item icon="column" to="/message" tag="li"
             >列表</van-tabbar-item
           >
-          <van-tabbar-item icon="friends-o" to="/cart" tag="li"
+          <van-tabbar-item icon="shopping-cart" to="/cart" tag="li"
             >购物车</van-tabbar-item
           >
-          <van-tabbar-item icon="setting-o" to="/mine" tag="li"
+          <van-tabbar-item icon="manager" to="/mine" tag="li"
             >我的</van-tabbar-item
           >
         </van-tabbar>

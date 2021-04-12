@@ -1,6 +1,13 @@
 <template>
   <div class="message">
-    <van-nav-bar title="标题" left-text="返回" left-arrow :fixed="true">
+    <van-nav-bar
+      title="标题"
+      left-text="返回"
+      left-arrow
+      @click-left="onClickLeft"
+      @click-right="onClickRight"
+      :fixed="true"
+    >
       <template #right>
         <van-icon name="search" size="18" />
       </template>
@@ -28,6 +35,7 @@
   </div>
 </template>
 <script>
+import Toast from "vant";
 export default {
   components: {},
   data() {
@@ -67,6 +75,12 @@ export default {
         path: "/detail",
         query: { id },
       });
+    },
+    onClickLeft() {
+      Toast("返回");
+    },
+    onClickRight() {
+      Toast("按钮");
     },
   },
   created() {},
