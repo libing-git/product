@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Index from "../components/content/index.vue";
-import Tong from "../components/content/tong/index.vue";
+import Shouye from "../components/content/shouye/index.vue";
 import Cart from "../components/content/cart/index.vue";
 import Mine from "../components/content/mine/index.vue";
 import Message from "../components/content/message/index.vue";
@@ -19,7 +19,7 @@ const router = new VueRouter({
       component: Index,
       children: [
         { path: "/message", component: Message, meta: { showTabbar: true } },
-        { path: "/tong", component: Tong, meta: { showTabbar: true } },
+        { path: "/shouye", component: Shouye, meta: { showTabbar: true } },
         {
           path: "/mine",
           component: Mine,

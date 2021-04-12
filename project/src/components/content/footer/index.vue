@@ -2,10 +2,20 @@
   <div class="footer">
     <div class="footerNav">
       <ul>
-        <router-link to="/tong" tag="li">首页</router-link>
-        <router-link to="/message" tag="li">列表</router-link>
-        <router-link to="/cart" tag="li">购物车</router-link>
-        <router-link to="/mine" tag="li">我的</router-link>
+        <van-tabbar v-model="active">
+          <van-tabbar-item icon="home-o" to="/shouye" tag="li"
+            >首页</van-tabbar-item
+          >
+          <van-tabbar-item icon="search" to="/message" tag="li"
+            >列表</van-tabbar-item
+          >
+          <van-tabbar-item icon="friends-o" to="/cart" tag="li"
+            >购物车</van-tabbar-item
+          >
+          <van-tabbar-item icon="setting-o" to="/mine" tag="li"
+            >我的</van-tabbar-item
+          >
+        </van-tabbar>
       </ul>
     </div>
   </div>
@@ -15,7 +25,9 @@
 export default {
   components: {},
   data() {
-    return {};
+    return {
+      active: 0,
+    };
   },
   methods: {},
   created() {},
@@ -45,6 +57,7 @@ export default {
 }
 .footerNav ul li {
   flex: 1;
+  font-size: 16px;
   height: 40px;
   line-height: 40px;
   text-align: center;
