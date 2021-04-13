@@ -1,6 +1,7 @@
 <template>
   <div class="register">
-    <van-form validate-first @failed="onFailed">
+    <RegHeader></RegHeader>
+    <van-form validate-first @failed="onFailed" class="reg-form">
       <!-- 通过 pattern 进行正则校验 -->
       <van-field
         label="用户名"
@@ -16,25 +17,19 @@
         placeholder="密码"
         :rules="[{ pattern, message: '请输入正确内容' }]"
       />
-      <van-field
-        label="昵称"
-        v-model="value3"
-        name="userName"
-        placeholder="昵称"
-        :rules="[{ userName, message: '请输入正确内容' }]"
-      />
-      <van-uploader
-        v-model="fileList"
-        multiple
-        :max-count="1"
-        :after-read="readFile"
-      />
+
       <!-- 通过 validator 进行函数校验 -->
       <!-- <img :src="imgurl" alt="" class="img"> -->
       <!-- 通过 validator 进行异步函数校验 -->
-      <div style="margin: 16px;">
-        <van-button round block type="info" native-type="submit" @click="submit"
-          >提交</van-button
+      <div style="margin: 16px">
+        <van-button
+          round
+          block
+          type="info"
+          native-type="submit"
+          @click="submit"
+          class="regBtn"
+          >注册</van-button
         >
       </div>
     </van-form>
@@ -44,8 +39,11 @@
 <script>
 // import axios from 'axios'
 import { Notify } from "vant";
+import RegHeader from "../header/reg";
 export default {
-  components: {},
+  components: {
+    RegHeader,
+  },
   data() {
     return {
       value1: "",
@@ -112,7 +110,11 @@ export default {
 };
 </script>
 <style scoped>
-img {
-  width: 85px;
+.reg-form {
+  width: 100%;
+  margin-top: 40%;
+}
+.regBtn {
+  margin-top: 20px;
 }
 </style>
