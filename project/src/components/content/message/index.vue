@@ -18,24 +18,24 @@
       finished-text="没有更多了"
       @load="onLoad"
     >
-      <!-- <van-cell v-for="item in list" :key="item._id" :title="item.name" />
-             -->
-      <ul class="produtList">
-        <li v-for="item in list" :key="item._id" @click="proDetail(item._id)">
-          <div class="pimg">
-            <img :src="item.coverImg" alt="" />
-          </div>
-          <div class="pname">
-            <p>{{ item.name }}</p>
-            <span>{{ item.descriptions }}</span>
-          </div>
-        </li>
-      </ul>
+      <van-card
+        v-for="item in list"
+        :key="item._id"
+        :price="(item.price / 100).toFixed(2)"
+        :title="item.name"
+        :thumb="item.coverImg"
+      >
+        <template #footer>
+          <van-button size="mini" icon="cart" type="danger" class="btn" @click="proDetail(item._id)"
+            >购买</van-button
+          >
+        </template></van-card
+      >
     </van-list>
   </div>
 </template>
 <script>
-import Toast from "vant";
+// import Toast from "vant";
 export default {
   components: {},
   data() {
@@ -77,10 +77,10 @@ export default {
       });
     },
     onClickLeft() {
-      Toast("返回");
+      // Toast("返回");
     },
     onClickRight() {
-      Toast("按钮");
+      // Toast("按钮");
     },
   },
   created() {},
@@ -96,26 +96,16 @@ export default {
 };
 </script>
 <style scoped>
+.btn {
+  float: right;
+  margin-right: 1rem;
+  border: none;
+  margin-top: -1.5rem;
+  padding: 0.6rem;
+  color: white;
+}
 .van-list {
   padding-top: 50px;
   padding-bottom: 40px;
-}
-.produtList li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.produtList img {
-  width: 80px;
-  height: 80px;
-}
-.produtList li span {
-  color: gray;
-  display: block;
-  /* margin-top: 10px; */
-  line-height: 20px;
-}
-.produtList li p {
-  line-height: 20px;
 }
 </style>

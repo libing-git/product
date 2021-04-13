@@ -15,6 +15,7 @@ const router = new VueRouter({
     // {path:'/message',component:message},
     {
       path: "/index",
+      name:'IndexFo',
       redirect: "/shouye",
       component: Index,
       children: [
@@ -37,18 +38,23 @@ const router = new VueRouter({
         },
         {
           path: "/login",
+          name:'Login',
           component: () => import("../components/content/login/login.vue"),
           meta: { showTabbar: false },
         },
         {
           path: "/register",
+          name:'Reg',
           component: () => import("../components/content/login/register.vue"),
         },
         {
           path: "/detail",
+          name:'Detail',
           component: () => import("../components/content/detail/index.vue"),
         },
-        { path: "/cart", component: Cart, meta: { showTabbar: true } },
+        { path: "/cart",
+        name:'Cart',
+        component: Cart, meta: { showTabbar: true } },
       ],
     },
   ],

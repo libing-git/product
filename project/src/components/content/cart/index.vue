@@ -1,10 +1,16 @@
 <template>
   <div class="cart">
+    <van-nav-bar
+      title="购物车"
+      left-text="返回"
+      left-arrow
+      @click-left="onClickLeft"
+    />
     <div v-for="item in products" :key="item._id">
       <van-checkbox v-model="item.checked">选中</van-checkbox>
       <div>
         <p>{{ item.product.name }}</p>
-        <p>{{ item.product.price }}</p>
+        <p>{{ item.product.price /100}}</p>
         <p>{{ item.quantity }}</p>
       </div>
     </div>
@@ -84,15 +90,17 @@ export default {
     // initCartlist(){
     //     this.$http.get(`${serverUrl}`)
     // }
-
+    onClickLeft() {
+      this.$router.go(-1)
+    },
     async initCartlist() {
       const result = await reqCartlist();
       console.log(result);
-      //   this.products = result.data;
+      this.products = result.data;
     },
     onSubmit() {
       Notify({ type: "warning", message: "请输入地址" });
-      //   this.$router.replace("/address");
+      // this.$router.replace("/address");
     },
     // onClickIcon() {
     //   Toast("点击图标");
