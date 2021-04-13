@@ -60,6 +60,39 @@ const router = new VueRouter({
           name:'Detail',
           component: () => import("../components/content/detail/index.vue"),
         },
+
+        { path: "/cart", component: Cart, meta: { showTabbar: true } },
+        // new新品发布
+        {
+          path: "/new",
+          component: () => import("../components/content/shouye/new.vue"),
+        },
+          // 大力教育
+          {
+            path: "/jiaoyu",
+            component: () => import("../components/content/shouye/jiaoyu.vue"),
+          },
+           // 手机数码
+           {
+            path: "/shouji",
+            component: () => import("../components/content/shouye/shouji.vue"),
+          },
+            // 坚果周边
+            {
+              path: "/jianguo",
+              component: () => import("../components/content/shouye/jianguo.vue"),
+            },
+             // 以旧换新
+             {
+              path: "/newjiu",
+              component: () => import("../components/content/shouye/newjiu.vue"),
+            },
+              // sousuo
+              {
+                path: "/sousuo",
+                component: () => import("../components/content/shouye/sousuo.vue"),
+              },
+
         { path: "/cart",
         name:'Cart',
         component: Cart, meta: { showTabbar: true } },
