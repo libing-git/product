@@ -15,7 +15,7 @@ const router = new VueRouter({
     // {path:'/message',component:message},
     {
       path: "/index",
-      redirect: "/message",
+      redirect: "/shouye",
       component: Index,
       children: [
         { path: "/message", component: Message, meta: { showTabbar: true } },
