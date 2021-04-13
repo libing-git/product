@@ -15,7 +15,8 @@ const router = new VueRouter({
     // {path:'/message',component:message},
     {
       path: "/index",
-      redirect: "/message",
+      name:'IndexFo',
+      redirect: "/shouye",
       component: Index,
       children: [
         { path: "/message", component: Message, meta: { showTabbar: true } },
@@ -37,17 +38,29 @@ const router = new VueRouter({
         },
         {
           path: "/login",
+          name:'Login',
           component: () => import("../components/content/login/login.vue"),
           meta: { showTabbar: false },
         },
         {
           path: "/register",
+          name:'Reg',
           component: () => import("../components/content/login/register.vue"),
         },
         {
+          path: "/dizi",
+          component: () => import("../components/content/mine/dizi.vue"),
+        },
+        {
+          path: "/dingdan",
+          component: () => import("../components/content/mine/dingdan.vue"),
+        },
+        {
           path: "/detail",
+          name:'Detail',
           component: () => import("../components/content/detail/index.vue"),
         },
+
         { path: "/cart", component: Cart, meta: { showTabbar: true } },
         // new新品发布
         {
@@ -79,6 +92,10 @@ const router = new VueRouter({
                 path: "/sousuo",
                 component: () => import("../components/content/shouye/sousuo.vue"),
               },
+
+        { path: "/cart",
+        name:'Cart',
+        component: Cart, meta: { showTabbar: true } },
       ],
     },
   ],
