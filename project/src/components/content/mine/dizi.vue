@@ -1,6 +1,5 @@
 <template>
   <div class="dizi">
-    111
     <van-address-list
       v-model="chosenAddressId"
       :list="list"
@@ -69,6 +68,4 @@ export default {
   activated() {},
 };
 </script>
-<style lang="scss" scoped>
-//@import url(); 引入公共css类
-</style>
+<style scoped></style>

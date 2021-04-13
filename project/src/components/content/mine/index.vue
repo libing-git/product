@@ -10,13 +10,13 @@
         <span>登录 / 注册</span>
         <em><van-icon name="arrow" color="#A8A8A8"/></em>
       </div>
-      <div class="gr1-x">
+      <div class="gr1-x" @click="Dingdan">
         <van-grid square :column-num="5">
-          <van-grid-item icon="orders-o" text="全部订单" to="" />
-          <van-grid-item icon="credit-pay" text="待付款" to="" />
-          <van-grid-item icon="cart" text="待收货" to="" />
-          <van-grid-item icon="records" text="待评价" to="" />
-          <van-grid-item icon="manager" text="售后" to="" />
+          <van-grid-item icon="orders-o" text="全部订单" badge="99+" to="" />
+          <van-grid-item icon="credit-pay" text="待付款" badge="5" to="" />
+          <van-grid-item icon="cart" text="待收货" badge="99+" to="" />
+          <van-grid-item icon="records" text="待评价" badge="23" to="" />
+          <van-grid-item icon="manager" text="售后" dot to="" />
         </van-grid>
       </div>
     </div>
@@ -82,6 +82,9 @@ export default {
     },
     Dizi() {
       this.$router.push("/dizi");
+    },
+    Dingdan() {
+      this.$router.push("/dingdan");
     },
   },
   created() {},

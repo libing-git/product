@@ -45,6 +45,14 @@ const router = new VueRouter({
           component: () => import("../components/content/login/register.vue"),
         },
         {
+          path: "/dizi",
+          component: () => import("../components/content/mine/dizi.vue"),
+        },
+        {
+          path: "/dingdan",
+          component: () => import("../components/content/mine/dingdan.vue"),
+        },
+        {
           path: "/detail",
           component: () => import("../components/content/detail/index.vue"),
         },

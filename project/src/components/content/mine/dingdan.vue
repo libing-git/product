@@ -1,6 +1,10 @@
 <template>
   <div class="dingdan">
-      
+    <van-notice-bar
+      scrollable
+      left-icon="volume-o"
+      text="此功能未开发，敬请期待，程序员已经被开除了。"
+    />
   </div>
 </template>
 
@@ -23,6 +27,4 @@ export default {
   activated() {},
 };
 </script>
-<style lang="scss" scoped>
-//@import url(); 引入公共css类
-</style>
+<style scoped></style>
