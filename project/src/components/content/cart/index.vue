@@ -9,13 +9,30 @@
     <div v-for="item in products" :key="item._id">
       <van-checkbox v-model="item.checked">选中</van-checkbox>
       <div>
-        <p>{{ item.product.name }}</p>
+        <van-swipe-cell>
+          <van-card
+            :num="item.quantity"
+            :price="(item.product.price / 100).toFixed(2)"
+            :title="item.product.name"
+            class="goods-card"
+            thumb="../"
+          />
+          <template #right>
+            <van-button
+              square
+              text="删除"
+              type="danger"
+              class="delete-button"
+            />
+          </template>
+        </van-swipe-cell>
+        <!-- <p>{{ item.product.name }}</p>
         <p>{{ item.product.price /100}}</p>
-        <p>{{ item.quantity }}</p>
+        <p>{{ item.quantity }}</p> -->
       </div>
     </div>
     <van-submit-bar
-      :price="sumPrice * 100"
+      :price="sumPrice "
       button-text="立即结算"
       @submit="onSubmit"
     >
@@ -91,7 +108,7 @@ export default {
     //     this.$http.get(`${serverUrl}`)
     // }
     onClickLeft() {
-      this.$router.go(-1)
+      this.$router.go(-1);
     },
     async initCartlist() {
       const result = await reqCartlist();
@@ -119,4 +136,11 @@ export default {
   updated() {},
 };
 </script>
-<style scoped></style>
+<style scoped>
+.goods-card {
+  margin: 0;
+}
+.delete-button {
+  height: 100%;
+}
+</style>

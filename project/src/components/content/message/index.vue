@@ -1,7 +1,7 @@
 <template>
   <div class="message">
     <van-nav-bar
-      title="标题"
+      title="商品列表"
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"
@@ -12,6 +12,12 @@
         <van-icon name="search" size="18" />
       </template>
     </van-nav-bar>
+    <div class="xzcv">
+      <img
+        src="https://resource.smartisan.com/resource/9300be71ef2851bade39bc8a383d5524.jpg?x-oss-process=image/resize,w_828/format,webp"
+        alt=""
+      />
+    </div>
     <van-list
       v-model="loading"
       :finished="finished"
@@ -26,7 +32,12 @@
         :thumb="item.coverImg"
       >
         <template #footer>
-          <van-button size="mini" icon="cart" type="danger" class="btn" @click="proDetail(item._id)"
+          <van-button
+            size="mini"
+            icon="cart"
+            type="danger"
+            class="btn"
+            @click="proDetail(item._id)"
             >购买</van-button
           >
         </template></van-card
@@ -104,8 +115,15 @@ export default {
   padding: 0.6rem;
   color: white;
 }
-.van-list {
-  padding-top: 50px;
-  padding-bottom: 40px;
+.xzcv{
+  margin-top:3rem ;
+}
+.xzcv img{
+  width: 95%;
+  border-radius: 2rem;
+  margin: 0 auto;
+}
+.van-nav-bar__content{
+  position: fixed;
 }
 </style>

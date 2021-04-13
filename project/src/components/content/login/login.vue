@@ -27,7 +27,10 @@
             class="logBtn"
             >登录</van-button
           >
-          <van-button
+          <router-link class="reg" :to="{ name: 'Reg' }"
+            >没有账号，我要注册</router-link
+          >
+          <!-- <van-button
             round
             block
             type="info"
@@ -35,7 +38,7 @@
             class="regBtn"
             @click="toReg"
             >注册</van-button
-          >
+          > -->
         </div>
       </van-form>
     </div>
@@ -58,9 +61,9 @@ export default {
     };
   },
   methods: {
-    toReg() {
-      this.$router.push("/register");
-    },
+    // toReg() {
+    //   this.$router.push("/register");
+    // },
     login() {
       localStorage.setItem("token", "xxxx");
       this.$router.push("/message");
@@ -76,9 +79,10 @@ export default {
           if (res.status === 200) {
             if (res.data.code == "success") {
               store.commit("setToken", res.data.token);
-              //  store.user.commit('setToken', res.data.token)
-              // localStorage.setItem('token',res.data.token);
+              store.user.commit("setToken", res.token);
+              localStorage.setItem("token", res.token);
               Notify({ type: "success", message: "登录成功" });
+              localStorage.setItem("userName", this.username);
               this.$router.push("/message");
             }
           }
@@ -100,5 +104,8 @@ export default {
 .logBtn,
 .regBtn {
   margin-top: 20px;
+}
+.reg {
+  margin: 3rem 0.5rem;
 }
 </style>

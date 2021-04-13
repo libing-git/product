@@ -2,12 +2,12 @@
   <div class="mine">
     <h1 class="zong">个人中心</h1>
     <div class="geren1">
-      <div class="gr1-s" @click="Login">
+      <div class="gr1-s">
         <img
           src="//static.smartisanos.cn/mobilenew/img/head.4b81d150.png"
           alt=""
         />
-        <span>登录 / 注册</span>
+        <span class="_name">账号:{{ username }}</span>
         <em><van-icon name="arrow" color="#A8A8A8"/></em>
       </div>
       <div class="gr1-x" @click="Dingdan">
@@ -74,12 +74,18 @@
 export default {
   components: {},
   data() {
-    return {};
+    return {
+      username: " ",
+    };
+  },
+  created() {
+    console.log(this.$route);
+    this.username = localStorage.getItem("userName");
   },
   methods: {
-    Login() {
-      this.$router.push("/login");
-    },
+    // Login() {
+    //   this.$router.push("/login");
+    // },
     Dizi() {
       this.$router.push("/dizi");
     },
@@ -87,7 +93,6 @@ export default {
       this.$router.push("/dingdan");
     },
   },
-  created() {},
   mounted() {},
   //如果页面有keep-alive缓存功能，这个函数会触发
   activated() {},

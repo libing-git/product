@@ -162,9 +162,9 @@ body {
 }
 .pname p {
   font-weight: 700;
-  margin: 5px 0;
+  margin: 0.2rem 0;
   line-height: 18px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .pname span {
   font-size: 18px;

@@ -9,21 +9,43 @@
     <div class="proDetail">
       <div class="proimg" v-if="product">
         <van-swipe class="my-swipe" :autoplay="2000" indicator-color="white">
-          <van-swipe-item><img :src="product.coverImg" alt="" /></van-swipe-item>
-          <van-swipe-item><img :src="product.coverImg" alt="" /></van-swipe-item>
+          <van-swipe-item><img :src="product.coverImg" alt=""/></van-swipe-item>
+          <van-swipe-item><img :src="product.coverImg" alt=""/></van-swipe-item>
         </van-swipe>
-        
       </div>
       <div class="productText" v-if="product">
         <div class="p-price">
           <p>￥{{ product.price / 100 }}</p>
           <span><van-icon name="star" /> 收藏</span>
         </div>
-        <p>{{ product.name }}</p>
+        <p class="name">{{ product.name }}</p>
         <!-- <span>{{ product.descriptions }}</span> -->
       </div>
     </div>
+    <van-cell-group border class="fuwushuoming">
+      <van-cell class="fuwu" value="服务说明" />
+      <van-cell class="tuihuan" value="7天内无理由退货，15天质量问题换货" />
+    </van-cell-group>
+    <!-- 优惠券单元格 -->
+    <van-coupon-cell
+    />
+    <!-- 优惠券列表 -->
+    <van-popup
+    >
+      <van-coupon-list
+      />
+    </van-popup>
 
+    <van-cell-group border class="fuwushuoming">
+      <van-cell class="fuwu" value="优惠信息" />
+      <van-cell class="tuihuan" value="开春价格直降" />
+    </van-cell-group>
+    <div class="xiangqing">
+      <h2>商品详情</h2>
+      <img :src="product.coverImg" alt="" />
+      <img :src="product.coverImg" alt="" />
+    </div>
+    <div class="zw"></div>
     <!-- <van-button type="primary" block @click="addCart">加入购物车</van-button> -->
     <van-goods-action>
       <van-goods-action-icon
@@ -100,6 +122,25 @@ export default {
 };
 </script>
 <style scoped>
+.xiangqing {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+.zw {
+  width: 100%;
+  height: 50px;
+}
+.fuwushuoming {
+  margin-top: 0.5rem;
+  /* border: 1px solid #ccc; */
+}
+.fuwu {
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ccc;
+}
+.fuwushuoming .tuihuan {
+  font-size: 0.6rem;
+}
 .proDetail img {
   width: 100%;
 }
@@ -129,5 +170,13 @@ export default {
   line-height: 150px;
   text-align: center;
   background-color: #39a9ed;
+}
+.name {
+  font-size: 1.2rem;
+  text-indent: 1rem;
+}
+.van-nav-bar__content {
+  position: fixed;
+  top: 0;
 }
 </style>

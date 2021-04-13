@@ -1,10 +1,18 @@
 <template>
   <div class="dingdan">
+    <van-nav-bar
+    class="dd"
+      title="我的订单"
+      left-text=""
+      left-arrow
+      @click-left="onClickLeft"
+    />
     <van-notice-bar
       scrollable
       left-icon="volume-o"
-      text="此功能未开发，敬请期待，程序员已经被开除了。"
+      text="此页面部分功能未开发，敬请期待，程序员已经删库跑路。"
     />
+
   </div>
 </template>
 
@@ -17,7 +25,11 @@ export default {
   computed: {},
   watch: {},
 
-  methods: {},
+  methods: {
+    onClickLeft() {
+      this.$router.go(-1);
+    },
+  },
   created() {},
   mounted() {},
   beforeCreate() {},
@@ -27,4 +39,15 @@ export default {
   activated() {},
 };
 </script>
-<style scoped></style>
+<style scoped>
+.dd{
+  border-bottom: solid 1px #ccc;
+
+}
+.dingdan h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  /* background-color: aqua; */
+  line-height: 3rem;
+}
+</style>

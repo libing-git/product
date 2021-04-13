@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <van-icon name="arrow-left" color="#fff" class="icon" />
+    <van-icon name="arrow-left" color="#fff" class="icon" @click="fanhui" />
     <h3>账号密码登录</h3>
   </div>
 </template>
@@ -16,7 +16,11 @@ export default {
   //监控data中的数据变化
   watch: {},
 
-  methods: {},
+  methods: {
+    fanhui(){
+      this.$router.go(-1)
+    }
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
