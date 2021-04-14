@@ -83,7 +83,7 @@ const router = new VueRouter({
         },
         {
           path: "/dizi",
-          name:'DiZi',
+          name: 'DiZi',
           component: () => import("../components/content/mine/dizi.vue"),
         },
         {

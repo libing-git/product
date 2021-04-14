@@ -1,8 +1,8 @@
 <!--  -->
 <template>
-  <div class="jiaoyu">
+  <div class="jianguo">
     <van-nav-bar
-      title="大力教育"
+      title="坚果周边"
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"
