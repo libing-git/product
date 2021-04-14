@@ -64,6 +64,11 @@
         :to="{ name: 'IndexFo' }"
       />
       <van-goods-action-icon
+        icon="star-o"
+        text="收藏"
+        :to="{ name: 'Fav' }"
+      />
+      <van-goods-action-icon
         icon="cart-o"
         text="购物车"
         :to="{ name: 'Cart' }"

@@ -1,12 +1,11 @@
 <template>
-  <div class="dizi">
+  <div class="order">
     <van-nav-bar
-      title="收货地址"
+      title="订单详情"
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"
     />
-
     <van-address-list
       v-model="chosenAddressId"
       :list="list"
@@ -20,12 +19,10 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { AddressList } from "vant";
 import { Toast } from "vant";
 
-Vue.use(AddressList);
 export default {
+  components: {},
   data() {
     return {
       chosenAddressId: "1",
@@ -54,9 +51,12 @@ export default {
       ],
     };
   },
+  computed: {},
+  watch: {},
+
   methods: {
-    onClickLeft(){
-      this.$router.go(-1)
+    onClickLeft() {
+      this.$router.replace("/cart");
     },
     onAdd() {
       Toast("新增地址");
@@ -65,17 +65,12 @@ export default {
       Toast("编辑地址:" + index);
     },
   },
-  components: {},
-
-  computed: {},
-  watch: {},
   created() {},
   mounted() {},
   beforeCreate() {},
   beforeMount() {},
   beforeUpdate() {},
   updated() {},
-  activated() {},
 };
 </script>
 <style scoped></style>
