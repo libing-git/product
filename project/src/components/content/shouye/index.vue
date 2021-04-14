@@ -52,14 +52,7 @@
     </div>
 
     <!-- 回顶部 -->
-    <a href="#top" class="hui">回到顶部</a>
-    <!-- 图片 -->
-    <div class="img">
-      <img
-        src="https://resource.smartisan.com/resource/a2e2329e8429982a5ebff8376be91a97.png?x-oss-process=image/resize,w_828/format,webp"
-        alt=""
-      />
-    </div>
+    <huiding />
 
     <!-- 列表 -->
     <van-list
@@ -75,7 +68,7 @@
           </div>
           <div class="pname">
             <p>{{ item.name }}</p>
-            <span> ￥：{{ item.price / 100 }}</span>
+            <span>￥:{{ item.price / 100 }}</span>
           </div>
         </li>
       </ul>
@@ -85,8 +78,12 @@
   </div>
 </template>
 <script>
+import huiding from "./huiding";
+
 export default {
-  components: {},
+  components: {
+    huiding,
+  },
   data() {
     return {
       list: [],

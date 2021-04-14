@@ -47,6 +47,14 @@ const router = new VueRouter({
           component: () => import("../components/content/login/register.vue"),
         },
         {
+          path: "/address",
+          name: "Address",
+          component: () => import("../components/content/address/index.vue"),
+          meta: {
+            showTabbar: true, //显示底部导航
+          },
+        },
+        {
           path: "/dizi",
           component: () => import("../components/content/mine/dizi.vue"),
         },

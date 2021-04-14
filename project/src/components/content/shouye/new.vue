@@ -16,7 +16,6 @@
         <van-tab v-for="(item, index) in lists" :title="item.name" :key="index">
           <!-- 内容 {{ index }} -->
           <div class="box">
-            {{ index }}
             <van-list
               v-model="loading"
               :finished="finished"
@@ -51,7 +50,7 @@
         finished-text="没有更多了"
         @load="onLoad"
         >
-             <ul class="produtList">
+            ul class="produtList">
                 <li v-for="item in list" :key="item._id" @click="proDetail(item._id)">
                     <div class="pimg">
                         <img :src="item.coverImg" alt="">
@@ -61,7 +60,7 @@
                         <span> ￥：{{item.price}}</span>
                     </div>
                 </li>
-             </ul>
+            </ul>
         </van-list> -->
   </div>
 </template>
