@@ -10,34 +10,36 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
   mode: "hash",
-  routes: [{
+  routes: [
+    {
       path: "/",
-      redirect: "/index"
+      redirect: "/index",
     },
     {
       path: "/index",
       name: "IndexFo",
       redirect: "/shouye",
       component: Index,
-      children: [{
+      children: [
+        {
           path: "/message",
           component: Message,
           meta: {
-            showTabbar: true
-          }
+            showTabbar: true,
+          },
         },
         {
           path: "/shouye",
           component: Shouye,
           meta: {
-            showTabbar: true
-          }
+            showTabbar: true,
+          },
         },
         {
           path: "/mine",
           component: Mine,
           meta: {
-            showTabbar: true
+            showTabbar: true,
           },
 
           // 路由独享守卫
@@ -55,7 +57,7 @@ const router = new VueRouter({
           name: "Login",
           component: () => import("../components/content/login/login.vue"),
           meta: {
-            showTabbar: false
+            showTabbar: false,
           },
         },
         {
@@ -77,13 +79,15 @@ const router = new VueRouter({
           path: "/address",
           name: "Address",
           component: () => import("../components/content/address/index.vue"),
-          meta: {
-            showTabbar: true, //显示底部导航
-          },
+        },
+        {
+          path: "/order",
+          name: "Order",
+          component: () => import("../components/content/order/index.vue"),
         },
         {
           path: "/dizi",
-          name: 'DiZi',
+          name: "DiZi",
           component: () => import("../components/content/mine/dizi.vue"),
         },
         {
@@ -100,8 +104,8 @@ const router = new VueRouter({
           path: "/cart",
           component: Cart,
           meta: {
-            showTabbar: true
-          }
+            showTabbar: true,
+          },
         },
         // new新品发布
         {
@@ -139,7 +143,7 @@ const router = new VueRouter({
           name: "Cart",
           component: Cart,
           meta: {
-            showTabbar: true
+            showTabbar: true,
           },
         },
       ],

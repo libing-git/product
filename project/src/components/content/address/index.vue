@@ -4077,6 +4077,7 @@ export default {
 
   methods: {
     onSave() {
+      this.$router.replace("/order");
       Toast("save");
     },
     onDelete() {
