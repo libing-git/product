@@ -27,13 +27,10 @@
       <van-cell class="tuihuan" value="7天内无理由退货，15天质量问题换货" />
     </van-cell-group>
     <!-- 优惠券单元格 -->
-    <van-coupon-cell
-    />
+    <van-coupon-cell />
     <!-- 优惠券列表 -->
-    <van-popup
-    >
-      <van-coupon-list
-      />
+    <van-popup>
+      <van-coupon-list />
     </van-popup>
 
     <van-cell-group border class="fuwushuoming">

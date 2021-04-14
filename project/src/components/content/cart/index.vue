@@ -31,11 +31,7 @@
         <p>{{ item.quantity }}</p> -->
       </div>
     </div>
-    <van-submit-bar
-      :price="sumPrice "
-      button-text="立即结算"
-      @submit="onSubmit"
-    >
+    <van-submit-bar :price="sumPrice" button-text="立即结算" @submit="onSubmit">
       <van-checkbox v-model="checked">全选</van-checkbox>
     </van-submit-bar>
     <!-- <van-goods-action
@@ -95,18 +91,6 @@ export default {
   watch: {},
 
   methods: {
-    //   initDetail(id){
-    //         this.$http.get(`http://localhost:3009/api/v1/products/${id}`).then(res=>{
-    //             console.log(res)
-    //             if(res.status === 200){
-    //                 this.product = res.data
-    //             }
-    //         })
-    //     },
-
-    // initCartlist(){
-    //     this.$http.get(`${serverUrl}`)
-    // }
     onClickLeft() {
       this.$router.go(-1);
     },
@@ -117,7 +101,7 @@ export default {
     },
     onSubmit() {
       Notify({ type: "warning", message: "请输入地址" });
-      // this.$router.replace("/address");
+      this.$router.replace("../adress");
     },
     // onClickIcon() {
     //   Toast("点击图标");
