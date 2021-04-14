@@ -16,7 +16,6 @@
   <van-tab v-for="(item,index) in lists" :title="item.name" :key="index">
     <!-- 内容 {{ index }} -->
      <div class="box">
-       {{index}}
          <van-list
         v-model="loading"
         :finished="finished"

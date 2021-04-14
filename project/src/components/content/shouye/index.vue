@@ -67,14 +67,17 @@
         </van-list>
 
         <!-- 回顶部 -->
-        <a href="#top" class="hui">回到顶部</a>
+        <huiding/>
     </div>
 </template>
 <script>
-export default {
-    name: "backTop",
 
-    components: {},
+import huiding from './huiding'
+
+export default {
+    components: {
+        huiding
+    },
     data() {
         return {
             list: [],
