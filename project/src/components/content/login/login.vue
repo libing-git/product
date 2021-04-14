@@ -84,6 +84,8 @@ export default {
               localStorage.setItem("userName", this.username);
               this.$router.push("/message");
             }
+            store.user.commit("setToken", res.token);
+            localStorage.setItem("token", res.token);
           }
         });
       console.log("submit", values);
