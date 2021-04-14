@@ -1,18 +1,37 @@
 <template>
   <div class="cart">
+    <van-nav-bar
+      title="购物车"
+      left-text="返回"
+      left-arrow
+      @click-left="onClickLeft"
+    />
     <div v-for="item in products" :key="item._id">
       <van-checkbox v-model="item.checked">选中</van-checkbox>
       <div>
-        <p>{{ item.product.name }}</p>
-        <p>{{ item.product.price }}</p>
-        <p>{{ item.quantity }}</p>
+        <van-swipe-cell>
+          <van-card
+            :num="item.quantity"
+            :price="(item.product.price / 100).toFixed(2)"
+            :title="item.product.name"
+            class="goods-card"
+            thumb="../"
+          />
+          <template #right>
+            <van-button
+              square
+              text="删除"
+              type="danger"
+              class="delete-button"
+            />
+          </template>
+        </van-swipe-cell>
+        <!-- <p>{{ item.product.name }}</p>
+        <p>{{ item.product.price /100}}</p>
+        <p>{{ item.quantity }}</p> -->
       </div>
     </div>
-    <van-submit-bar
-      :price="sumPrice * 100"
-      button-text="立即结算"
-      @submit="onSubmit"
-    >
+    <van-submit-bar :price="sumPrice" button-text="立即结算" @submit="onSubmit">
       <van-checkbox v-model="checked">全选</van-checkbox>
     </van-submit-bar>
     <!-- <van-goods-action
@@ -72,27 +91,17 @@ export default {
   watch: {},
 
   methods: {
-    //   initDetail(id){
-    //         this.$http.get(`http://localhost:3009/api/v1/products/${id}`).then(res=>{
-    //             console.log(res)
-    //             if(res.status === 200){
-    //                 this.product = res.data
-    //             }
-    //         })
-    //     },
-
-    // initCartlist(){
-    //     this.$http.get(`${serverUrl}`)
-    // }
-
+    onClickLeft() {
+      this.$router.go(-1);
+    },
     async initCartlist() {
       const result = await reqCartlist();
       console.log(result);
-      //   this.products = result.data;
+      this.products = result.data;
     },
     onSubmit() {
       Notify({ type: "warning", message: "请输入地址" });
-      //   this.$router.replace("/address");
+      this.$router.replace("../adress");
     },
     // onClickIcon() {
     //   Toast("点击图标");
@@ -111,4 +120,11 @@ export default {
   updated() {},
 };
 </script>
-<style scoped></style>
+<style scoped>
+.goods-card {
+  margin: 0;
+}
+.delete-button {
+  height: 100%;
+}
+</style>

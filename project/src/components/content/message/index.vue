@@ -1,7 +1,7 @@
 <template>
   <div class="message">
     <van-nav-bar
-      title="标题"
+      title="商品列表"
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"
@@ -12,30 +12,41 @@
         <van-icon name="search" size="18" />
       </template>
     </van-nav-bar>
+    <div class="xzcv">
+      <img
+        src="https://resource.smartisan.com/resource/9300be71ef2851bade39bc8a383d5524.jpg?x-oss-process=image/resize,w_828/format,webp"
+        alt=""
+      />
+    </div>
     <van-list
       v-model="loading"
       :finished="finished"
       finished-text="没有更多了"
       @load="onLoad"
     >
-      <!-- <van-cell v-for="item in list" :key="item._id" :title="item.name" />
-             -->
-      <ul class="produtList">
-        <li v-for="item in list" :key="item._id" @click="proDetail(item._id)">
-          <div class="pimg">
-            <img :src="item.coverImg" alt="" />
-          </div>
-          <div class="pname">
-            <p>{{ item.name }}</p>
-            <span>{{ item.descriptions }}</span>
-          </div>
-        </li>
-      </ul>
+      <van-card
+        v-for="item in list"
+        :key="item._id"
+        :price="(item.price / 100).toFixed(2)"
+        :title="item.name"
+        :thumb="item.coverImg"
+      >
+        <template #footer>
+          <van-button
+            size="mini"
+            icon="cart"
+            type="danger"
+            class="btn"
+            @click="proDetail(item._id)"
+            >购买</van-button
+          >
+        </template></van-card
+      >
     </van-list>
   </div>
 </template>
 <script>
-import Toast from "vant";
+// import Toast from "vant";
 export default {
   components: {},
   data() {
@@ -77,10 +88,10 @@ export default {
       });
     },
     onClickLeft() {
-      Toast("返回");
+      // Toast("返回");
     },
     onClickRight() {
-      Toast("按钮");
+      // Toast("按钮");
     },
   },
   created() {},
@@ -96,26 +107,23 @@ export default {
 };
 </script>
 <style scoped>
-.van-list {
-  padding-top: 50px;
-  padding-bottom: 40px;
+.btn {
+  float: right;
+  margin-right: 1rem;
+  border: none;
+  margin-top: -1.5rem;
+  padding: 0.6rem;
+  color: white;
 }
-.produtList li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+.xzcv{
+  margin-top:3rem ;
 }
-.produtList img {
-  width: 80px;
-  height: 80px;
+.xzcv img{
+  width: 95%;
+  border-radius: 2rem;
+  margin: 0 auto;
 }
-.produtList li span {
-  color: gray;
-  display: block;
-  /* margin-top: 10px; */
-  line-height: 20px;
-}
-.produtList li p {
-  line-height: 20px;
+.van-nav-bar__content{
+  position: fixed;
 }
 </style>
