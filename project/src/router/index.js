@@ -12,10 +12,10 @@ const router = new VueRouter({
   mode: "hash",
   routes: [
     { path: "/", redirect: "/index" },
+    // {path:'/message',component:message},
     {
       path: "/index",
-      name: "IndexFo",
-      redirect: "/shouye",
+      redirect: "/message",
       component: Index,
       children: [
         { path: "/message", component: Message, meta: { showTabbar: true } },
@@ -37,75 +37,48 @@ const router = new VueRouter({
         },
         {
           path: "/login",
-          name: "Login",
           component: () => import("../components/content/login/login.vue"),
           meta: { showTabbar: false },
         },
         {
           path: "/register",
-          name: "Reg",
           component: () => import("../components/content/login/register.vue"),
         },
         {
-          path: "/address",
-          name: "Address",
-          component: () => import("../components/content/address/index.vue"),
-          meta: {
-            showTabbar: true, //显示底部导航
-          },
-        },
-        {
-          path: "/dizi",
-          component: () => import("../components/content/mine/dizi.vue"),
-        },
-        {
-          path: "/dingdan",
-          component: () => import("../components/content/mine/dingdan.vue"),
-        },
-        {
           path: "/detail",
-          name: "Detail",
           component: () => import("../components/content/detail/index.vue"),
         },
-
         { path: "/cart", component: Cart, meta: { showTabbar: true } },
         // new新品发布
         {
           path: "/new",
           component: () => import("../components/content/shouye/new.vue"),
         },
-        // 大力教育
-        {
-          path: "/jiaoyu",
-          component: () => import("../components/content/shouye/jiaoyu.vue"),
-        },
-        // 手机数码
-        {
-          path: "/shouji",
-          component: () => import("../components/content/shouye/shouji.vue"),
-        },
-        // 坚果周边
-        {
-          path: "/jianguo",
-          component: () => import("../components/content/shouye/jianguo.vue"),
-        },
-        // 以旧换新
-        {
-          path: "/newjiu",
-          component: () => import("../components/content/shouye/newjiu.vue"),
-        },
-        // sousuo
-        {
-          path: "/sousuo",
-          component: () => import("../components/content/shouye/sousuo.vue"),
-        },
-
-        {
-          path: "/cart",
-          name: "Cart",
-          component: Cart,
-          meta: { showTabbar: true },
-        },
+          // 大力教育
+          {
+            path: "/jiaoyu",
+            component: () => import("../components/content/shouye/jiaoyu.vue"),
+          },
+           // 手机数码
+           {
+            path: "/shouji",
+            component: () => import("../components/content/shouye/shouji.vue"),
+          },
+            // 坚果周边
+            {
+              path: "/jianguo",
+              component: () => import("../components/content/shouye/jianguo.vue"),
+            },
+             // 以旧换新
+             {
+              path: "/newjiu",
+              component: () => import("../components/content/shouye/newjiu.vue"),
+            },
+              // sousuo
+              {
+                path: "/sousuo",
+                component: () => import("../components/content/shouye/sousuo.vue"),
+              },
       ],
     },
   ],
