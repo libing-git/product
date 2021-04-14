@@ -11,12 +11,10 @@
       />
     </form>
 
-    <div class="box">
-      <p>热门搜索</p>
-      <span> 坚果 R2 </span><span> 蓝牙耳机 </span><span> TNT </span
-      ><span> 移动电源 </span> <br />
-      <span> 坚果快充 </span><span> 坚果 R2 保护套 </span>
-    </div>
+   <div class="box">
+       <p>热门搜索</p>
+       <span v-for='(name,index) in listname' :key='index' @click='search(name.name)' > {{name.name}} </span>
+   </div>
 
     <div class="liebiao" v-for="item in lists" :key="item._id">
       <div class="left">
@@ -27,49 +25,99 @@
         <p>{{ item.name }}</p>
         <span>{{ item.price }}</span>
       </div>
-    </div>
-  </div>
+
+
+    
+   </div>
+
+     <!-- 点击搜索 -->
+     <div class="liebiaos" v-for="item in names" :key="item._id">
+      <div class="lefts">
+           <img :src="item.coverImg" alt="">
+      </div>
+      <div class="rights">
+           <p>{{item.content}}</p>
+           <p>{{item.name}}</p>
+       <span>{{item.price}}</span>
+      </div>
+     </div>
+</div>
 </template>
 
 <script>
 export default {
-  components: {},
-  data() {
-    return {
-      value: "",
-      lists: [],
-    };
-  },
-  computed: {},
-  watch: {},
-  methods: {
-    onSearch(val) {
-      this.$http
-        .get("http://localhost:3009/api/v1/products", {
-          params: {
-            page: this.page,
-            name: val,
-          },
-        })
-        .then((res) => {
-          console.log(res.data.products);
-          this.lists = res.data.products;
-        });
+components: {},
+data() {
+return {
+       value: '',
+       lists:[],
+       listname:[
+           {
+               name:'口红'
+           },
+            {
+               name:'蓝牙耳机 '
+           },
+            {
+               name:'手机 '
+           },
+            {
+               name:'耳机  '
+           },
+            {
+               name:'坚果快充'
+           },
+            {
+               name:'坚果 R2 保护套  '
+           },
+       ],
+       names:[],
+};
+},
+computed: {},
+watch: {},
+methods: {
+      onSearch(val) {
+       this.$http.get('http://localhost:3009/api/v1/products',{params:{
+               page:this.page,
+               name:val,
+           }
+           }).then(res=>{
+               console.log(res.data.products);
+                this.lists=res.data.products
+           })
     },
     onCancel() {
       this.$router.push({ path: "/shouye" });
     },
-  },
-  created() {},
-  mounted() {},
-  beforeCreate() {},
-  beforeMount() {},
-  beforeUpdate() {},
-  updated() {},
-  beforeDestroy() {},
-  destroyed() {},
-  activated() {},
-};
+
+// 点击搜索
+   search(name){    
+    //    console.log(1111);
+     this.$http.get('http://localhost:3009/api/v1/products',{params:{
+               page:this.page,
+               name:name,
+           }
+           }).then(res=>{
+               console.log(res.data.products);
+                this.names=res.data.products
+           })
+   }
+},
+created() {
+
+},
+mounted() {
+
+},
+beforeCreate() {},
+beforeMount() {}, 
+beforeUpdate() {}, 
+updated() {}, 
+beforeDestroy() {},
+destroyed() {}, 
+activated() {}, 
+}
 </script>
 <style scoped>
 .box {
@@ -106,5 +154,25 @@ export default {
   font-size: 16px;
   color: red;
   margin: 0 0 0 20px;
+}
+
+
+
+.liebiaos{
+    display: flex;
+}
+.lefts img{
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+.rights p{
+    margin:10px 0 10px 10px  ;
+    font-size: 18px;
+}
+.rights span{
+    font-size: 16px;
+    color: red;
+    margin: 0 0 0 20px;
 }
 </style>

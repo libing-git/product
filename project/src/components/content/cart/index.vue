@@ -101,7 +101,7 @@ export default {
     },
     onSubmit() {
       Notify({ type: "warning", message: "请输入地址" });
-      this.$router.replace("../adress");
+      this.$router.replace("/address");
     },
     // onClickIcon() {
     //   Toast("点击图标");
