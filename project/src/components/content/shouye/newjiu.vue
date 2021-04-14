@@ -1,6 +1,7 @@
 <!--  -->
 <template>
 <div class='newjiu'>
+    
     <van-nav-bar
       title="锤子商城"
       left-text="返回"

@@ -43,8 +43,7 @@ export default {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: pink;
-  /* opacity: 0.5; */
+  background:#999;
   text-align: center;
   line-height: 50px;
   font-size: 12px;

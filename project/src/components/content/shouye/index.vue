@@ -20,7 +20,7 @@
         <!-- 图标分类 -->
         <div class="tubiao">
             <div class="tubiao1" @click="news">
-                <van-icon name="star-o" color="#1989fa" />
+                <van-icon name="shop-collect-o" color="#1989fa" />
                 <p>新品发布</p>
             </div>
              <div class="tubiao1" @click="jiaoyu">
@@ -28,7 +28,7 @@
                 <p>大力教育</p>
             </div>
              <div class="tubiao1" @click="shouji">
-                <van-icon name="plus" color="blue" />
+                <van-icon name="invition" color="blue" />
                 <p>手机数码</p>
             </div>
              <div class="tubiao1" @click="jianguo">
