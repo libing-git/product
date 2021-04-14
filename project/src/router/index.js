@@ -10,20 +10,35 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
   mode: "hash",
-  routes: [
-    { path: "/", redirect: "/index" },
+  routes: [{
+      path: "/",
+      redirect: "/index"
+    },
     {
       path: "/index",
       name: "IndexFo",
       redirect: "/shouye",
       component: Index,
-      children: [
-        { path: "/message", component: Message, meta: { showTabbar: true } },
-        { path: "/shouye", component: Shouye, meta: { showTabbar: true } },
+      children: [{
+          path: "/message",
+          component: Message,
+          meta: {
+            showTabbar: true
+          }
+        },
+        {
+          path: "/shouye",
+          component: Shouye,
+          meta: {
+            showTabbar: true
+          }
+        },
         {
           path: "/mine",
           component: Mine,
-          meta: { showTabbar: true },
+          meta: {
+            showTabbar: true
+          },
 
           // 路由独享守卫
           beforeEnter(to, from, next) {
@@ -39,12 +54,24 @@ const router = new VueRouter({
           path: "/login",
           name: "Login",
           component: () => import("../components/content/login/login.vue"),
-          meta: { showTabbar: false },
+          meta: {
+            showTabbar: false
+          },
         },
         {
           path: "/register",
           name: "Reg",
           component: () => import("../components/content/login/register.vue"),
+        },
+        {
+          path: "/fav",
+          name: "Fav",
+          component: () => import("../components/content/fav/fav.vue"),
+        },
+        {
+          path: "/user",
+          name: "User",
+          component: () => import("../components/content/mine/user.vue"),
         },
         {
           path: "/address",
@@ -56,6 +83,7 @@ const router = new VueRouter({
         },
         {
           path: "/dizi",
+          name:'DiZi',
           component: () => import("../components/content/mine/dizi.vue"),
         },
         {
@@ -68,7 +96,13 @@ const router = new VueRouter({
           component: () => import("../components/content/detail/index.vue"),
         },
 
-        { path: "/cart", component: Cart, meta: { showTabbar: true } },
+        {
+          path: "/cart",
+          component: Cart,
+          meta: {
+            showTabbar: true
+          }
+        },
         // new新品发布
         {
           path: "/new",
@@ -104,7 +138,9 @@ const router = new VueRouter({
           path: "/cart",
           name: "Cart",
           component: Cart,
-          meta: { showTabbar: true },
+          meta: {
+            showTabbar: true
+          },
         },
       ],
     },

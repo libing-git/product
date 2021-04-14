@@ -1,7 +1,7 @@
 <template>
   <div class="dizi">
     <van-nav-bar
-      title="标题"
+      title="收货地址"
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"

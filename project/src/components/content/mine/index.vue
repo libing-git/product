@@ -2,7 +2,7 @@
   <div class="mine">
     <h1 class="zong">个人中心</h1>
     <div class="geren1">
-      <div class="gr1-s">
+      <div class="gr1-s" @click="shezhiHandle">
         <img
           src="//static.smartisanos.cn/mobilenew/img/head.4b81d150.png"
           alt=""
@@ -20,49 +20,23 @@
         </van-grid>
       </div>
     </div>
-    <ul class="lb-box">
-      <li @click="Dizi">
-        <em>地址管理</em>
-        <i><van-icon name="arrow" color="#A8A8A8"/></i>
-      </li>
-      <li>
-        <em>我的优惠券</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
-      </li>
-      <li style="border:0">
-        <em>优先购买码</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
-      </li>
-    </ul>
-    <ul class="lb-box">
-      <li>
-        <em>零售门店</em>
-        <i><van-icon name="arrow" color="#A8A8A8"/></i>
-      </li>
-      <li>
-        <em>以旧换新</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
-      </li>
-      <li>
-        <em>常见问题</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
-      </li>
-      <li style="border:0">
-        <em>服务支持</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
-      </li>
-    </ul>
+    <van-grid>
+      <van-grid-item :to="{name:'DiZi'}" icon="photo-o" text="地址管理" />
+      <van-grid-item icon="photo-o" text="我的优惠券" />
+      <van-grid-item icon="photo-o" text="优先购买码" />
+      <van-grid-item icon="photo-o" text="零售门店" />
+      <van-grid-item icon="photo-o" text="以旧换新" />
+      <van-grid-item icon="photo-o" text="常见问题" />
+      <van-grid-item icon="photo-o" text="服务支持" />
+      <van-grid-item icon="photo-o" text="活动说明" />
+    </van-grid>
+
     <ul class="lb-box">
       <li>
-        <em>意外碎屏保修服务</em>
-        <i><van-icon name="arrow" color="#A8A8A8"/></i>
-      </li>
-      <li>
-        <em>延长保修服务</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
-      </li>
-      <li>
-        <em>协议政策</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
-      </li>
-      <li>
-        <em>纸质证照</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
+        <em>修改密码</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
       </li>
       <li style="border:0">
-        <em>活动说明</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
+        <em>退出登录</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
       </li>
     </ul>
   </div>
@@ -83,6 +57,9 @@ export default {
     this.username = localStorage.getItem("userName");
   },
   methods: {
+    shezhiHandle() {
+      this.$router.push("/user");
+    },
     // Login() {
     //   this.$router.push("/login");
     // },

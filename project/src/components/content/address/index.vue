@@ -1,6 +1,5 @@
 <template>
   <div class="address">
-    <h3>地址编辑</h3>
     <van-address-edit
       :area-list="areaList"
       show-postal
