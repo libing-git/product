@@ -10,7 +10,7 @@
     >
     </van-nav-bar>
 
-     <van-empty
+    <van-empty
   class="custom-image"
   image="https://img01.yzcdn.cn/vant/custom-empty-image.png"
   description="抱歉！！！没有商品。"
@@ -31,12 +31,12 @@ return {
 computed: {},
 watch: {},
 methods: {
-   onClickLeft(){
-       this.$router.push({path:'/shouye'})
-   },
-     tolist(){
+    onClickLeft(){
+      this.$router.push({path:'/shouye'})
+    },
+    tolist(){
       this.$router.push({path:'/message'})
-   }
+    }
 },
 created() {
 
@@ -57,7 +57,7 @@ activated() {},
 .custom-image{
   margin-top: 180px;
 }
- .custom-image .van-empty__image {
+  .custom-image .van-empty__image {
     width: 90px;
     height: 90px;
   }

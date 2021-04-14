@@ -51,8 +51,8 @@
       </div>
     </div>
 
-        <!-- 回顶部 -->
-        <a href="#top" class="hui">回到顶部</a>
+    <!-- 回顶部 -->
+    <a href="#top" class="hui">回到顶部</a>
     <!-- 图片 -->
     <div class="img">
       <img
@@ -75,7 +75,7 @@
           </div>
           <div class="pname">
             <p>{{ item.name }}</p>
-            <span> ￥：{{ item.price/100}}</span>
+            <span> ￥：{{ item.price / 100 }}</span>
           </div>
         </li>
       </ul>
@@ -190,30 +190,30 @@ body {
   height: 300px;
 }
 
-  /* 搜索*/
- .sousuo{
-     overflow: hidden;
-     position: fixed;
-     top:0;
-     left: 0;
-     z-index: 2;
-     width:100%;
-     height: 50px;
- }
- /* 图标 */
- .tubiao{
-     display: flex;
-     justify-content: space-between;
-     min-height: 30px;
-     margin: 20px 0 10px 0;
- }
- .van-icon{
-     font-size: 56px;
-     margin-left: 10px;
- }
- .tubiao1 p{
-     font-size: 18px;
- }
+/* 搜索*/
+.sousuo {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 50px;
+}
+/* 图标 */
+.tubiao {
+  display: flex;
+  justify-content: space-between;
+  min-height: 30px;
+  margin: 20px 0 10px 0;
+}
+.van-icon {
+  font-size: 56px;
+  margin-left: 10px;
+}
+.tubiao1 p {
+  font-size: 18px;
+}
 
 /* 首页 */
 .sousuo {
@@ -246,11 +246,10 @@ body {
 
 /* 回顶 */
 
-.hui{
-    background: yellow;
-   position: absolute;
-   top: 400px;
-   right:50px ;
+.hui {
+  background: yellow;
+  position: absolute;
+  top: 400px;
+  right: 50px;
 }
-
 </style>

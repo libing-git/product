@@ -1,5 +1,12 @@
 <template>
   <div class="dizi">
+    <van-nav-bar
+      title="标题"
+      left-text="返回"
+      left-arrow
+      @click-left="onClickLeft"
+    />
+
     <van-address-list
       v-model="chosenAddressId"
       :list="list"
@@ -48,6 +55,9 @@ export default {
     };
   },
   methods: {
+    onClickLeft(){
+      this.$router.go(-1)
+    },
     onAdd() {
       Toast("新增地址");
     },

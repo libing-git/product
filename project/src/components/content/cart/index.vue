@@ -31,11 +31,7 @@
         <p>{{ item.quantity }}</p> -->
       </div>
     </div>
-    <van-submit-bar
-      :price="sumPrice "
-      button-text="立即结算"
-      @submit="onSubmit"
-    >
+    <van-submit-bar :price="sumPrice" button-text="立即结算" @submit="onSubmit">
       <van-checkbox v-model="checked">全选</van-checkbox>
     </van-submit-bar>
     <!-- <van-goods-action

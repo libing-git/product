@@ -9,8 +9,12 @@
     <div class="proDetail">
       <div class="proimg" v-if="product">
         <van-swipe class="my-swipe" :autoplay="2000" indicator-color="white">
-          <van-swipe-item><img :src="product.coverImg" alt=""/></van-swipe-item>
-          <van-swipe-item><img :src="product.coverImg" alt=""/></van-swipe-item>
+          <van-swipe-item
+            ><img v-if="product.coverImg" :src="product.coverImg" alt=""
+          /></van-swipe-item>
+          <van-swipe-item
+            ><img v-if="product.coverImg" :src="product.coverImg" alt=""
+          /></van-swipe-item>
         </van-swipe>
       </div>
       <div class="productText" v-if="product">
@@ -21,19 +25,17 @@
         <p class="name">{{ product.name }}</p>
         <!-- <span>{{ product.descriptions }}</span> -->
       </div>
+      <van-rate v-model="value" />
     </div>
     <van-cell-group border class="fuwushuoming">
       <van-cell class="fuwu" value="服务说明" />
       <van-cell class="tuihuan" value="7天内无理由退货，15天质量问题换货" />
     </van-cell-group>
     <!-- 优惠券单元格 -->
-    <van-coupon-cell
-    />
+    <van-coupon-cell />
     <!-- 优惠券列表 -->
-    <van-popup
-    >
-      <van-coupon-list
-      />
+    <van-popup>
+      <van-coupon-list />
     </van-popup>
 
     <van-cell-group border class="fuwushuoming">
@@ -42,8 +44,16 @@
     </van-cell-group>
     <div class="xiangqing">
       <h2>商品详情</h2>
-      <img :src="product.coverImg" alt="" />
-      <img :src="product.coverImg" alt="" />
+      <img :src="product.coverImg" v-if="imgurl" alt="" />
+      <!-- <img :src="product.coverImg" v-if="product.coverImg" alt="" />  -->
+      <img
+        src="https://resource.smartisan.com/resource/30e4b9472f7b6c34b635ee483ca3cb47.png?x-oss-process=image/resize,w_828/indexcrop,y_1440,i_0/format,webp"
+        alt=""
+      />
+      <img
+        src="https://resource.smartisan.com/resource/1f906f1a85c9b4f96fce3a550cb5adaa.png?x-oss-process=image/resize,w_828/indexcrop,y_1440,i_6/format,webp"
+        alt=""
+      />
     </div>
     <div class="zw"></div>
     <!-- <van-button type="primary" block @click="addCart">加入购物车</van-button> -->
@@ -73,8 +83,9 @@ export default {
   components: {},
   data() {
     return {
+      value: 4,
+      imgurl: "",
       product: null,
-      value: "",
     };
   },
   methods: {
@@ -85,6 +96,7 @@ export default {
           console.log(res);
           if (res.status === 200) {
             this.product = res.data;
+            this.imgurl = res.data.coverImg;
           }
         });
     },
@@ -128,7 +140,7 @@ export default {
 }
 .zw {
   width: 100%;
-  height: 50px;
+  height: 80px;
 }
 .fuwushuoming {
   margin-top: 0.5rem;
@@ -178,5 +190,8 @@ export default {
 .van-nav-bar__content {
   position: fixed;
   top: 0;
+}
+.van-rate {
+  margin: 1rem;
 }
 </style>

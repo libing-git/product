@@ -79,12 +79,12 @@ export default {
           if (res.status === 200) {
             if (res.data.code == "success") {
               store.commit("setToken", res.data.token);
-              store.user.commit("setToken", res.token);
-              localStorage.setItem("token", res.token);
               Notify({ type: "success", message: "登录成功" });
               localStorage.setItem("userName", this.username);
               this.$router.push("/message");
             }
+            store.user.commit("setToken", res.token);
+            localStorage.setItem("token", res.token);
           }
         });
       console.log("submit", values);

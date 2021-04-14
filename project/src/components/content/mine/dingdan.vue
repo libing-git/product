@@ -1,7 +1,7 @@
 <template>
   <div class="dingdan">
     <van-nav-bar
-    class="dd"
+      class="dd"
       title="我的订单"
       left-text=""
       left-arrow
@@ -10,9 +10,14 @@
     <van-notice-bar
       scrollable
       left-icon="volume-o"
-      text="此页面部分功能未开发，敬请期待，程序员已经删库跑路。"
+      text="此页面部分功能未开发，敬请期待。"
     />
-
+    <van-grid>
+      <van-grid-item icon="orders-o" text="全部" />
+      <van-grid-item icon="credit-pay" text="待付款" />
+      <van-grid-item icon="logistics" text="待收货" />
+      <van-grid-item icon="sign" text="已完成" />
+    </van-grid>
   </div>
 </template>
 
@@ -40,9 +45,8 @@ export default {
 };
 </script>
 <style scoped>
-.dd{
+.dd {
   border-bottom: solid 1px #ccc;
-
 }
 .dingdan h2 {
   text-align: center;
