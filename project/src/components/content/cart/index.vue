@@ -11,11 +11,15 @@
       <div>
         <van-swipe-cell>
           <van-card
-            :num="item.quantity"
             :price="(item.product.price / 100).toFixed(2)"
             :title="item.product.name"
             class="goods-card"
-            thumb="../"
+            :thumb="item.product.coverImg"
+          />
+          <van-stepper
+            v-model="item.quantity"
+            @plus="addNum(item, item.product._id)"
+            @minus="subNum(item, item.product._id)"
           />
           <template #right>
             <van-button
@@ -23,6 +27,7 @@
               text="删除"
               type="danger"
               class="delete-button"
+              @click="delatePro(data._id,)"
             />
           </template>
         </van-swipe-cell>
@@ -31,6 +36,7 @@
         <p>{{ item.quantity }}</p> -->
       </div>
     </div>
+    <div class="zwy"></div>
     <van-submit-bar :price="sumPrice" button-text="立即结算" @submit="onSubmit">
       <van-checkbox v-model="checked">全选</van-checkbox>
     </van-submit-bar>
@@ -89,7 +95,6 @@ export default {
     },
   },
   watch: {},
-
   methods: {
     onClickLeft() {
        this.$router.push('/message')
@@ -112,12 +117,37 @@ export default {
           }
       })
     },
-    // onClickIcon() {
-    //   Toast("点击图标");
-    // },
-    // onClickButton() {
-    //   Toast("点击按钮");
-    // },
+    // 增加
+    async addNum(item, id) {
+      item.quantity++;
+      const result = await reqCartlist({ products: id });
+      console.log(result);
+    },
+    //减少
+    async subNum(item, id) {
+      item.quantity--;
+      const result = await reqCartlist({ products: id, quantity: -1 });
+      console.log(result);
+    },
+    // 删除
+    // 根据id删除购物车商品
+    // delatePro(id) {
+    //   Dialog.confirm({
+    //     title: "删除",
+    //     message: "你确定要删除吗？",
+    //   })
+    //     .then(async () => {
+    //       // on confirm
+    //       await delpro(id);
+    //       this.list.forEach((v, i) => {
+    //         if (v._id == id) {
+    //           this.list.splice(i, 1);
+    //         }
+    //       });
+    //     })
+    //     .catch(() => {
+    //       // on cancel
+    //     });
   },
   created() {
     this.initCartlist(); //初始数据
@@ -127,6 +157,7 @@ export default {
   beforeMount() {},
   beforeUpdate() {},
   updated() {},
+  
 };
 </script>
 <style scoped>
@@ -135,5 +166,20 @@ export default {
 }
 .delete-button {
   height: 100%;
+}
+.zwy {
+  width: 100%;
+  height: 4rem;
+}
+.van-stepper {
+  float: right;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+}
+.van-card__price-currency,
+.van-card__price-integer,
+.van-card__price-decimal {
+  color: red;
 }
 </style>

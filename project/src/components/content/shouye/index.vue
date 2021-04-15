@@ -7,40 +7,6 @@
       </van-sticky>
     </div>
 
-        <!-- weiper -->
-        <!-- <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-         <van-swipe-item>
-             <img src="https://resource.smartisan.com/resource/f7e26bf3e77ec39fa230d39ee4d3184a.png?x-oss-process=image/resize,w_828/format,webp" alt="">
-         </van-swipe-item>
-         <van-swipe-item>
-             <img src="https://resource.smartisan.com/resource/15281a93ab968555ba3bd7a911b14f68.png?x-oss-process=image/format,webp" alt="">
-         </van-swipe-item>
-        </van-swipe> -->
-         
-        <!-- 图标分类
-        
-        <div class="tubiao">
-            <div class="tubiao1" @click="news">
-                <van-icon name="shop-collect-o" color="#1989fa" />
-                <p>新品发布</p>
-            </div>
-             <div class="tubiao1" @click="jiaoyu">
-                <van-icon name="gift" color="red" />
-                <p>大力教育</p>
-            </div>
-             <div class="tubiao1" @click="shouji">
-                <van-icon name="invition" color="blue" />
-                <p>手机数码</p>
-            </div>
-             <div class="tubiao1" @click="jianguo">
-                <van-icon name="smile-comment-o" color="chartreuse" />
-                <p>坚果周边</p>
-            </div>
-              <div class="tubiao1" @click="newjiu">
-                <van-icon name="flower-o" color="forestgreen" />
-                <p>以旧换新</p>
-            </div>
-        </div> -->
     <!-- weiper -->
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
       <van-swipe-item>
@@ -103,7 +69,7 @@
           </div>
           <div class="pname">
             <p>{{ item.name }}</p>
-            <span> ￥：{{ item.price }}</span>
+            <span> ￥:{{ item.price / 100 }}</span>
           </div>
         </li>
       </ul>
