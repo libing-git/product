@@ -50,6 +50,7 @@ import { Notify } from "vant";
 // import store from '../store/user/index'
 import store from "../store";
 import Header from "../header/header";
+import { setToken } from '../../../utils/auth';
 export default {
   components: {
     Header,
@@ -79,7 +80,7 @@ export default {
           if (res.status === 200) {
             if (res.data.code == "success") {
               store.commit("setToken", res.data.token);
-              localStorage.setItem("token", res.token);
+              setToken(res.data.token)
               Notify({ type: "success", message: "登录成功" });
               localStorage.setItem("userName", this.username);
               this.$router.push("/message");

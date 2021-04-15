@@ -134,7 +134,7 @@ activated() {},
   border-radius: 9px;
   padding: 0 15px;
   margin: 5px 5px;
-  background: violet;
+  background:#999;
 }
 
 /* liebiao  */

@@ -1,5 +1,15 @@
 <template>
   <div class="address">
+        <van-nav-bar
+      title="地址"
+      left-text="返回"
+      left-arrow
+      @click-left="onClickLeft"
+      :fixed="true"
+    >
+    </van-nav-bar>
+
+
     <van-address-edit
       :area-list="areaList"
       show-postal
@@ -4095,6 +4105,10 @@ export default {
         this.searchResult = [];
       }
     },
+
+    onClickLeft(){
+      this.$router.push('/cart')
+    }
   },
   created() {},
   mounted() {},

@@ -50,7 +50,7 @@
 
 <script>
 import { reqCartlist } from "../api/cart";
-import { Notify } from "vant";
+// import { Notify } from "vant";
 // import { get } from "../../../utils/request";
 // import { serverUrl } from "../../../utils/common";
 // import { Toast } from "vant";
@@ -92,16 +92,25 @@ export default {
 
   methods: {
     onClickLeft() {
-      this.$router.go(-1);
+       this.$router.push('/message')
     },
     async initCartlist() {
       const result = await reqCartlist();
-      console.log(result);
+      // console.log(result);
       this.products = result.data;
+      console.log( this.products);
     },
     onSubmit() {
-      Notify({ type: "warning", message: "请输入地址" });
-      this.$router.replace("/address");
+      // Notify({ type: "warning", message: "请输入地址" });
+      // this.$router.replace("/dingdan");
+      const list = this.products.filter((item)=>item.checked)
+      console.log(list);
+      this.$router.push({
+          path:'/dingdan',
+          query:{
+              list,
+          }
+      })
     },
     // onClickIcon() {
     //   Toast("点击图标");
