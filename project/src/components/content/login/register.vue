@@ -16,6 +16,7 @@
       />
       <van-field
         label="密码"
+        type="password"
         v-model="value2"
         name="pattern"
         placeholder="密码"

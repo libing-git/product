@@ -2,9 +2,6 @@
   <div class="message">
     <van-nav-bar
       title="商品列表"
-      left-text="返回"
-      left-arrow
-      @click-left="onClickLeft"
       @click-right="onClickRight"
       :fixed="true"
     >

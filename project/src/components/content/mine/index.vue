@@ -19,35 +19,30 @@
           <van-grid-item
             icon="orders-o"
             text="全部订单"
-            badge="99+"
             @click="Dingdan"
             to=""
           />
           <van-grid-item
             icon="credit-pay"
             text="待付款"
-            badge="5"
             @click="Dingdan"
             to=""
           />
           <van-grid-item
             icon="cart"
             text="待收货"
-            badge="99+"
             @click="Dingdan"
             to=""
           />
           <van-grid-item
             icon="records"
             text="待评价"
-            badge="23"
             @click="Dingdan"
             to=""
           />
           <van-grid-item
             icon="manager"
             text="售后"
-            dot
             :to="{ name: 'after-sale' }"
           />
         </van-grid>
@@ -95,6 +90,7 @@
 // import { Toast } from "vant";
 import { loadUserInfo } from "../../../utils/src";
 import { removeToken } from "../../../utils/auth";
+import {Toast} from 'vant'
 export default {
   components: {},
   data() {
@@ -126,16 +122,13 @@ export default {
     async tuichu() {
       const del = await removeToken();
       console.log(del);
-      // Toast.success("退出成功");
-
+      Toast.success("退出成功");
       this.$router.push("/");
     },
     shezhiHandle() {
       this.$router.push("/user");
     },
-    // Login() {
-    //   this.$router.push("/login");
-    // },
+ 
     Dizi() {
       this.$router.push("/dizi");
     },
