@@ -16,7 +16,7 @@ export function getToken(){
 
 // 移除token
 
-export function removeToken(TOKEN){
+export function removeToken(){
     localStorage.removeItem(TOKEN)
 }
 

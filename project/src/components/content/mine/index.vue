@@ -10,36 +10,81 @@
           src="//static.smartisanos.cn/mobilenew/img/head.4b81d150.png"
           alt=""
         />
-        <span class="_name">账号:{{ username }}</span>
+        <span class="_name" v-if="!token">登录/注册</span>
+        <span class="_name" v-if="token">账号:{{ username }}</span>
         <em><van-icon name="arrow" color="#A8A8A8"/></em>
       </div>
-      <div class="gr1-x" @click="Dingdan">
+      <div class="gr1-x">
         <van-grid square :column-num="5">
-          <van-grid-item icon="orders-o" text="全部订单" badge="99+" to="" />
-          <van-grid-item icon="credit-pay" text="待付款" badge="5" to="" />
-          <van-grid-item icon="cart" text="待收货" badge="99+" to="" />
-          <van-grid-item icon="records" text="待评价" badge="23" to="" />
-          <van-grid-item icon="manager" text="售后" dot to="" />
+          <van-grid-item
+            icon="orders-o"
+            text="全部订单"
+            badge="99+"
+            @click="Dingdan"
+            to=""
+          />
+          <van-grid-item
+            icon="credit-pay"
+            text="待付款"
+            badge="5"
+            @click="Dingdan"
+            to=""
+          />
+          <van-grid-item
+            icon="cart"
+            text="待收货"
+            badge="99+"
+            @click="Dingdan"
+            to=""
+          />
+          <van-grid-item
+            icon="records"
+            text="待评价"
+            badge="23"
+            @click="Dingdan"
+            to=""
+          />
+          <van-grid-item
+            icon="manager"
+            text="售后"
+            dot
+            :to="{ name: 'after-sale' }"
+          />
         </van-grid>
       </div>
     </div>
     <van-grid>
-      <van-grid-item :to="{ name: 'DiZi' }" icon="photo-o" text="地址管理" />
-      <van-grid-item icon="photo-o" text="我的优惠券" />
-      <van-grid-item icon="photo-o" text="优先购买码" />
-      <van-grid-item icon="photo-o" text="零售门店" />
-      <van-grid-item icon="photo-o" text="以旧换新" />
-      <van-grid-item icon="photo-o" text="常见问题" />
-      <van-grid-item icon="photo-o" text="服务支持" />
-      <van-grid-item icon="photo-o" text="活动说明" />
+      <van-grid-item :to="{ name: 'DiZi' }" icon="logistics" text="地址管理" />
+      <van-grid-item :to="{ name: 'Fav' }" icon="star-o" text="我的收藏" />
+      <van-grid-item
+        :to="{ name: 'Explain' }"
+        icon="send-gift-o"
+        text="协议政策"
+      />
+      <van-grid-item
+        :to="{ name: 'after-sale' }"
+        icon="shop-o"
+        text="零售门店"
+      />
+      <van-grid-item :to="{ name: 'Server' }" icon="award-o" text="以旧换新" />
+      <van-grid-item
+        :to="{ name: 'Server' }"
+        icon="qr-invalid"
+        text="常见问题"
+      />
+      <van-grid-item
+        :to="{ name: 'Server' }"
+        icon="free-postage"
+        text="服务支持"
+      />
+      <van-grid-item icon="records" :to="{ name: 'Server' }" text="活动说明" />
     </van-grid>
-
     <ul class="lb-box">
       <li>
         <em @click="change">修改密码</em>
         <i><van-icon name="arrow" color="#A8A8A8"/></i>
       </li>
-      <li style="border:0">
+      <li style="border:0" @click="tuichu">
         <em>退出登录</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
       </li>
     </ul>
@@ -47,15 +92,15 @@
 </template>
 
 <script>
-// import { Dialog } from "vant";
 // import { Toast } from "vant";
 import { loadUserInfo } from "../../../utils/src";
+import { removeToken } from "../../../utils/auth";
 export default {
   components: {},
   data() {
     return {
       username: " ",
-      avatar: "",
+      token: "",
     };
   },
   created() {
@@ -74,6 +119,16 @@ export default {
     },
     change() {
       this.$router.push("/Changepassword");
+      this.token = localStorage.getItem("token");
+      // console.log(this.token);
+    },
+
+    async tuichu() {
+      const del = await removeToken();
+      console.log(del);
+      // Toast.success("退出成功");
+
+      this.$router.push("/");
     },
     shezhiHandle() {
       this.$router.push("/user");

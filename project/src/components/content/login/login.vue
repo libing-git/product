@@ -48,9 +48,10 @@
 <script>
 import { Notify } from "vant";
 // import store from '../store/user/index'
+import { setToken } from "../../../utils/auth";
 import store from "../store";
 import Header from "../header/header";
-import { setToken } from "../../../utils/auth";
+// import { setToken } from "../../../utils/auth";
 export default {
   components: {
     Header,
@@ -85,9 +86,9 @@ export default {
               localStorage.setItem("userName", this.username);
               this.$router.push("/message");
             }
-            store.user.commit("setToken", res.token);
-            localStorage.setItem("token", res.token);
           }
+          store.user.commit("setToken", res.token);
+          localStorage.setItem("token", res.token);
         });
       console.log("submit", values);
     },

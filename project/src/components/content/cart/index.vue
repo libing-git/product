@@ -11,12 +11,12 @@
       <div>
         <van-swipe-cell>
           <van-card
-            :num="item.quantity"
             :price="(item.product.price / 100).toFixed(2)"
             :title="item.product.name"
             class="goods-card"
-            thumb="../"
+            thumb="item.coverImg"
           />
+          <van-stepper v-model="item.quantity" disable-input />
           <template #right>
             <van-button
               square
@@ -31,6 +31,7 @@
         <p>{{ item.quantity }}</p> -->
       </div>
     </div>
+    <div class="zwy"></div>
     <van-submit-bar :price="sumPrice" button-text="立即结算" @submit="onSubmit">
       <van-checkbox v-model="checked">全选</van-checkbox>
     </van-submit-bar>
@@ -126,5 +127,18 @@ export default {
 }
 .delete-button {
   height: 100%;
+}
+.zwy {
+  width: 100%;
+  height: 4rem;
+}
+.van-stepper {
+  float: right;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+}
+.van-card__price-currency , .van-card__price-integer ,.van-card__price-decimal {
+  color: red;
 }
 </style>

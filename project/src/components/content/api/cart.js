@@ -1,4 +1,7 @@
-import { get, post } from "../../../utils/request";
+import {
+  get,
+  post
+} from "../../../utils/request";
 
 //添加购物车
 export const reqAddcart = (data) => post("/api/v1/shop_carts", data);
