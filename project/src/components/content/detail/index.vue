@@ -20,7 +20,6 @@
       <div class="productText" v-if="product">
         <div class="p-price">
           <p>￥{{ product.price / 100 }}</p>
-          <span><van-icon name="star" /> 收藏</span>
         </div>
         <p class="name">{{ product.name }}</p>
         <!-- <span>{{ product.descriptions }}</span> -->
@@ -62,11 +61,6 @@
         icon="chat-o"
         text="首页"
         :to="{ name: 'IndexFo' }"
-      />
-      <van-goods-action-icon
-        icon="star-o"
-        text="收藏"
-        :to="{ name: 'Fav' }"
       />
       <van-goods-action-icon
         icon="cart-o"

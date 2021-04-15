@@ -4,7 +4,7 @@
     <van-form validate-first @failed="onFailed" class="reg-form">
       <p>
         <img :src="avatar" alt="" />
-        <van-uploader :after-read="afterRead" preview-size="100px" />
+        <!-- <van-uploader :after-read="afterRead" preview-size="100px" /> -->
       </p>
       <!-- 通过 pattern 进行正则校验 -->
       <van-field
@@ -35,6 +35,9 @@
           class="regBtn"
           >注册</van-button
         >
+        <div class="reg">
+          <router-link :to="{ name: 'Login' }">已有账号，我要登录</router-link>
+        </div>
       </div>
     </van-form>
   </div>
@@ -141,7 +144,9 @@ p {
   justify-content: center;
   align-items: center;
 }
-
+.reg{
+  margin: 2rem 1rem;
+}
 img {
   width: 100px;
 }

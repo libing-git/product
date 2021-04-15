@@ -10,8 +10,8 @@
           src="//static.smartisanos.cn/mobilenew/img/head.4b81d150.png"
           alt=""
         />
-        <span class="_name" v-if="!token">登录/注册</span>
-        <span class="_name" v-if="token">账号:{{ username }}</span>
+        <!-- <span class="_name" v-if="!token">登录/注册</span> -->
+        <span class="_name" >账号:{{ username }}</span>
         <em><van-icon name="arrow" color="#A8A8A8"/></em>
       </div>
       <div class="gr1-x">
@@ -141,6 +141,9 @@ export default {
     },
     Dingdan() {
       this.$router.push("/dingdan");
+    },
+    login(){
+      this.$router.push('/login')
     },
   },
   mounted() {},
