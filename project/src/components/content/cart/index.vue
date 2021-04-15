@@ -14,15 +14,20 @@
             :price="(item.product.price / 100).toFixed(2)"
             :title="item.product.name"
             class="goods-card"
-            thumb="item.coverImg"
+            :thumb="item.product.coverImg"
           />
-          <van-stepper v-model="item.quantity" disable-input />
+          <van-stepper
+            v-model="item.quantity"
+            @plus="addNum(item, item.product._id)"
+            @minus="subNum(item, item.product._id)"
+          />
           <template #right>
             <van-button
               square
               text="删除"
               type="danger"
               class="delete-button"
+              @click="delatePro(data._id,)"
             />
           </template>
         </van-swipe-cell>
@@ -90,7 +95,6 @@ export default {
     },
   },
   watch: {},
-
   methods: {
     onClickLeft() {
       this.$router.go(-1);
@@ -104,12 +108,37 @@ export default {
       Notify({ type: "warning", message: "请输入地址" });
       this.$router.replace("/address");
     },
-    // onClickIcon() {
-    //   Toast("点击图标");
-    // },
-    // onClickButton() {
-    //   Toast("点击按钮");
-    // },
+    // 增加
+    async addNum(item, id) {
+      item.quantity++;
+      const result = await reqCartlist({ products: id });
+      console.log(result);
+    },
+    //减少
+    async subNum(item, id) {
+      item.quantity--;
+      const result = await reqCartlist({ products: id, quantity: -1 });
+      console.log(result);
+    },
+    // 删除
+    // 根据id删除购物车商品
+    // delatePro(id) {
+    //   Dialog.confirm({
+    //     title: "删除",
+    //     message: "你确定要删除吗？",
+    //   })
+    //     .then(async () => {
+    //       // on confirm
+    //       await delpro(id);
+    //       this.list.forEach((v, i) => {
+    //         if (v._id == id) {
+    //           this.list.splice(i, 1);
+    //         }
+    //       });
+    //     })
+    //     .catch(() => {
+    //       // on cancel
+    //     });
   },
   created() {
     this.initCartlist(); //初始数据
@@ -119,6 +148,7 @@ export default {
   beforeMount() {},
   beforeUpdate() {},
   updated() {},
+  
 };
 </script>
 <style scoped>
@@ -138,7 +168,9 @@ export default {
   bottom: 0.5rem;
   right: 1rem;
 }
-.van-card__price-currency , .van-card__price-integer ,.van-card__price-decimal {
+.van-card__price-currency,
+.van-card__price-integer,
+.van-card__price-decimal {
   color: red;
 }
 </style>
