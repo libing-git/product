@@ -3,6 +3,9 @@
     <h1 class="zong">个人中心</h1>
     <div class="geren1">
       <div class="gr1-s" @click="shezhiHandle">
+        <!-- <div class="box-img">
+          <img :src="avatar" alt="" />
+        </div> -->
         <img
           src="//static.smartisanos.cn/mobilenew/img/head.4b81d150.png"
           alt=""
@@ -21,7 +24,7 @@
       </div>
     </div>
     <van-grid>
-      <van-grid-item :to="{name:'DiZi'}" icon="photo-o" text="地址管理" />
+      <van-grid-item :to="{ name: 'DiZi' }" icon="photo-o" text="地址管理" />
       <van-grid-item icon="photo-o" text="我的优惠券" />
       <van-grid-item icon="photo-o" text="优先购买码" />
       <van-grid-item icon="photo-o" text="零售门店" />
@@ -33,7 +36,8 @@
 
     <ul class="lb-box">
       <li>
-        <em>修改密码</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
+        <em @click="change">修改密码</em>
+        <i><van-icon name="arrow" color="#A8A8A8"/></i>
       </li>
       <li style="border:0">
         <em>退出登录</em> <i><van-icon name="arrow" color="#A8A8A8"/></i>
@@ -43,20 +47,34 @@
 </template>
 
 <script>
-// import Dizi from "./dizi";
-
+// import { Dialog } from "vant";
+// import { Toast } from "vant";
+import { loadUserInfo } from "../../../utils/src";
 export default {
   components: {},
   data() {
     return {
       username: " ",
+      avatar: "",
     };
   },
   created() {
     console.log(this.$route);
     this.username = localStorage.getItem("userName");
+    this.loadUser();
   },
   methods: {
+    async loadUser() {
+      const res = await loadUserInfo();
+      // this.id = res._id;
+      // this.nickName = res.nickName;
+      // this.userName = res.userName;
+      this.avatar = res.avatar;
+      console.log(res);
+    },
+    change() {
+      this.$router.push("/Changepassword");
+    },
     shezhiHandle() {
       this.$router.push("/user");
     },

@@ -66,6 +66,11 @@ const router = new VueRouter({
           component: () => import("../components/content/login/register.vue"),
         },
         {
+          path: "/Changepassword",
+          name: "Changepassword",
+          component: () => import("../components/content/mine/Changepassword"),
+        },
+        {
           path: "/fav",
           name: "Fav",
           component: () => import("../components/content/fav/fav.vue"),
