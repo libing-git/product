@@ -3,10 +3,12 @@
     <van-nav-bar
       title="标题"
       left-text="返回"
-      left-arrow
       @click-left="onClickLeft"
+      left-arrow
     />
-    <h1>收藏</h1>
+    <div>
+      
+    </div>
   </div>
 </template>
 
@@ -20,4 +22,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style></style>

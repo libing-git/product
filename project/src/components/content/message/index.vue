@@ -87,11 +87,9 @@ export default {
         query: { id },
       });
     },
-    onClickLeft() {
-      // Toast("返回");
-    },
+    onClickLeft() {},
     onClickRight() {
-      // Toast("按钮");
+      this.$router.push("/sousuo");
     },
   },
   created() {},
@@ -115,15 +113,15 @@ export default {
   padding: 0.6rem;
   color: white;
 }
-.xzcv{
-  margin-top:3rem ;
+.xzcv {
+  margin-top: 3rem;
 }
-.xzcv img{
+.xzcv img {
   width: 95%;
   border-radius: 2rem;
   margin: 0 auto;
 }
-.van-nav-bar__content{
+.van-nav-bar__content {
   position: fixed;
 }
 </style>

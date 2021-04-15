@@ -10,8 +10,7 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
   mode: "hash",
-  routes: [
-    {
+  routes: [{
       path: "/",
       redirect: "/index",
     },
@@ -20,8 +19,7 @@ const router = new VueRouter({
       name: "IndexFo",
       redirect: "/shouye",
       component: Index,
-      children: [
-        {
+      children: [{
           path: "/message",
           component: Message,
           meta: {
@@ -99,7 +97,21 @@ const router = new VueRouter({
           name: "Detail",
           component: () => import("../components/content/detail/index.vue"),
         },
-
+        {
+          path: "/server",
+          name: "Server",
+          component: () => import("../components/content/mine/server.vue"),
+        },
+        {
+          path: "/explain",
+          name: "Explain",
+          component: () => import("../components/content/mine/explain.vue"),
+        },
+        {
+          path: "/after-sale",
+          name: "after-sale",
+          component: () => import("../components/content/mine/after-sale.vue"),
+        },
         {
           path: "/cart",
           component: Cart,
@@ -135,6 +147,7 @@ const router = new VueRouter({
         // sousuo
         {
           path: "/sousuo",
+          name: 'SouSuo',
           component: () => import("../components/content/shouye/sousuo.vue"),
         },
 
