@@ -51,6 +51,7 @@ import { Notify } from "vant";
 import { setToken } from "../../../utils/auth";
 import store from "../store";
 import Header from "../header/header";
+// import { setToken } from "../../../utils/auth";
 export default {
   components: {
     Header,
